@@ -306,7 +306,7 @@ class Enemy {
     else if(edge===2){this.x=Math.random()*W;this.y=H+40;}
     else{this.x=-40;this.y=Math.random()*H;}
 
-    this.r   = rand(18,30);
+    this.r   = rand(20,30);
     this.color = pickColor();
     this.dual  = Math.random() < DUAL_CHANCE;
     this.c1    = randomClass(w);
@@ -479,7 +479,7 @@ function updateHpUI() {
   document.getElementById('hp-bar').style.width=pct;
   document.getElementById('hp-text').textContent=`${P.hp} / ${MAX_HP}`;
   // color shift low hp
-  const c = P.hp <= 3 ? '#ff3a5c' : P.hp <= 6 ? '#ff9900' : '#00ff88';
+  const c = P.hp <= 2 ? '#ff3a5c' : P.hp <= 5 ? '#ff9900' : '#00ff88';
   document.getElementById('hp-bar').style.background=c;
   document.getElementById('hp-bar').style.boxShadow=`0 0 8px ${c}`;
 }
@@ -619,9 +619,9 @@ function die() {
 
 function updateVignette() {
   const el = document.getElementById('vignette');
-  if(P.hp <= 3) {
+  if(P.hp <= 2) {
     el.style.boxShadow = 'inset 0 0 120px 40px rgba(255,58,92,0.55)';
-  } else if(P.hp <= 6) {
+  } else if(P.hp <= 5) {
     el.style.boxShadow = 'inset 0 0 100px 20px rgba(255,58,92,0.2)';
   } else {
     el.style.boxShadow = 'none';
